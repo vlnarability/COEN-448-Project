@@ -110,12 +110,19 @@ public class RobotTest {
      }
 
     @Test
-    @DisplayName("should check pen down, so the status is true")
-    void checkPendown(){
-         robot.init(10);
-         assertTrue(!robot.getPen_down());
-
-     }
+    @DisplayName("Test if pen up and down commands works as intended")
+    void checkPenCommands(){
+        robot.init(10);
+        assertFalse(robot.getPen_down());
+        robot.setPen_down(true);
+        assertTrue(robot.getPen_down());
+        robot.setPen_down(true);
+        assertTrue(robot.getPen_down());
+        robot.setPen_down(false);
+        assertFalse(robot.getPen_down());
+        robot.setPen_down(false);
+        assertFalse(robot.getPen_down());
+    }
 
     @Test
     @DisplayName("Test if print information command works as intended")
