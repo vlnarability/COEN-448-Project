@@ -119,6 +119,35 @@ public class RobotTest {
          assertTrue(!robot.getPen_down());
 
      }
-    
 
+     @Test
+     @DisplayName("Test if print information command works as intended")
+     void checkPrintInfo(){
+        String pen = "";
+
+        if (robot.getPen_down()){
+            pen = "Down";
+        } else
+            pen = "Up";
+
+        robot.init(10);
+        assertEquals("Position: 0, 0 - Pen: Up - Facing: NORTH", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
+
+        robot.moveTo(1);
+        assertEquals("Position: 0, 1 - Pen: Up - Facing: NORTH", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
+         
+        robot.turnRight();
+        assertEquals("Position: 0, 1 - Pen: Up - Facing: EAST", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
+         
+        
+         
+        robot.setPen_down(true);
+
+        if (robot.getPen_down()){
+            pen = "Down";
+        } else
+            pen = "Up";
+
+        assertEquals("Position: 0, 1 - Pen: Down - Facing: EAST", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
+     }
 }

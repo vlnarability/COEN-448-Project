@@ -2,9 +2,6 @@ package com.coen448;
 
 import java.util.Scanner;
 
-/**
- * Hello world!
- */
 public class App {
 
     static Robot robot = new Robot();
@@ -81,8 +78,13 @@ public class App {
                     exit = true;
                     break;
                 case "I": //Initialize
-                    robot.init(cmd_int);
-                    break;              
+                    if (cmd_int == -1){
+                        System.out.println("In order to initialize, a non negative integer is required"); 
+                        break;
+                    } else{
+                        robot.init(cmd_int);
+                        break;
+                    }     
                 default:
                     System.out.println("Command not recognized");
                     break;
