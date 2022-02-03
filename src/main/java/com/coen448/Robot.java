@@ -24,6 +24,11 @@ public class Robot {
         this.initialized = true;
     }
 
+    //Return Array of floor
+    public int[][] getFloor(){
+        return this.floor.clone();
+    }
+
     //Return state of initialization
     public boolean getInitState(){
         return this.initialized;
