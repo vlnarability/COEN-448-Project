@@ -8,6 +8,9 @@ public class Robot {
         WEST;
     }
 
+    public static final String text_purple = "\u001B[35m";
+    public static final String text_reset = "\u001B[0m";
+
     boolean pen_down = false; //False = Up True = Down
     boolean initialized = false;
     Direction facing_dir = Direction.NORTH;
@@ -38,12 +41,17 @@ public class Robot {
 
     //Print the floor with labeled indices 
     public void printFloor(){
+        System.out.println(getPrintedFloor());
+    }
+
+    //Return the floor with labeled indices
+    public String getPrintedFloor(){
         String result = "";
         //Loop through flipped array to print with 0,0 at bottom right
         for(int i = floor.length - 1; i >= 0; i--){
             for(int j = 0; j < floor[i].length ; j++){
                 if (j == 0)
-                    result += " (" + i + ") ";
+                    result += text_purple + " (" + i + ") " + text_reset;
                 if (floor[i][j] == 1)
                     result += " * ";
                 else
@@ -54,13 +62,18 @@ public class Robot {
 
         result += "     ";
         for(int i = 0; i < floor.length; i++ )
-            result += "(" + i + ")";
+            result += text_purple + "(" + i + ")" + text_reset;
 
-        System.out.println(result);
+        return result;
     }
 
     //Print all information related to the system
     public void printInfo(){
+        System.out.println(getInfo());
+    }
+
+    //Returns all information related to the system
+    public String getInfo(){
         String pen = "";
 
         if (getPen_down()){
@@ -71,7 +84,7 @@ public class Robot {
         String result = "";
 
         result += String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", getLocation()[1], getLocation()[0], pen, getFacing_dir());
-        System.out.println(result);
+        return result;
     }
 
     //Returns state of Pen

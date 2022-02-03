@@ -120,32 +120,18 @@ public class RobotTest {
     @Test
     @DisplayName("Test if print information command works as intended")
     void checkPrintInfo(){
-        String pen = "";
-
-        if (robot.getPen_down()){
-            pen = "Down";
-        } else
-            pen = "Up";
 
         robot.init(10);
-        assertEquals("Position: 0, 0 - Pen: Up - Facing: NORTH", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
+        assertEquals("Position: 0, 0 - Pen: Up - Facing: NORTH", robot.getInfo());
 
         robot.moveTo(1);
-        assertEquals("Position: 0, 1 - Pen: Up - Facing: NORTH", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
+        assertEquals("Position: 0, 1 - Pen: Up - Facing: NORTH", robot.getInfo());
          
         robot.turnRight();
-        assertEquals("Position: 0, 1 - Pen: Up - Facing: EAST", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
-         
-        
+        assertEquals("Position: 0, 1 - Pen: Up - Facing: EAST", robot.getInfo());     
          
         robot.setPen_down(true);
-
-        if (robot.getPen_down()){
-            pen = "Down";
-        } else
-            pen = "Up";
-
-        assertEquals("Position: 0, 1 - Pen: Down - Facing: EAST", String.format("Position: %1$d, %2$d - Pen: %3$s - Facing: %4$s", robot.getLocation()[1], robot.getLocation()[0], pen, robot.getFacing_dir()));
+        assertEquals("Position: 0, 1 - Pen: Down - Facing: EAST", robot.getInfo());
      }
 
     @Test
@@ -159,7 +145,7 @@ public class RobotTest {
         for(int i = clean_floor.length - 1; i >= 0; i--){
             for(int j = 0; j < clean_floor[i].length ; j++){
                 if (j == 0)
-                clean_result += " (" + i + ") ";
+                clean_result += Robot.text_purple + " (" + i + ") " + Robot.text_reset;
                 if (clean_floor[i][j] == 1)
                 clean_result += " * ";
                 else
@@ -170,47 +156,11 @@ public class RobotTest {
 
         clean_result += "     ";
         for(int i = 0; i < clean_floor.length; i++ )
-        clean_result += "(" + i + ")";
+            clean_result += Robot.text_purple + "(" + i + ")" + Robot.text_reset;
 
-        String result = "";
-        //Loop through flipped array to print with 0,0 at bottom right
-        for(int i = robot.getFloor().length - 1; i >= 0; i--){
-            for(int j = 0; j < robot.getFloor()[i].length ; j++){
-                if (j == 0)
-                    result += " (" + i + ") ";
-                if (robot.getFloor()[i][j] == 1)
-                    result += " * ";
-                else
-                    result += " - ";
-            }
-                result += "\n";
-        }
-
-        result += "     ";
-        for(int i = 0; i < robot.getFloor().length; i++ )
-        result += "(" + i + ")";
-
-        assertEquals(clean_result, result);
+        assertEquals(clean_result, robot.getPrintedFloor());
         robot.setPen_down(true);
-        robot.moveTo(1);        
-
-        result = "";
-        //Loop through flipped array to print with 0,0 at bottom right
-        for(int i = robot.getFloor().length - 1; i >= 0; i--){
-            for(int j = 0; j < robot.getFloor()[i].length ; j++){
-                if (j == 0)
-                    result += " (" + i + ") ";
-                if (robot.getFloor()[i][j] == 1)
-                    result += " * ";
-                else
-                    result += " - ";
-            }
-                result += "\n";
-        }
-
-        result += "     ";
-        for(int i = 0; i < robot.getFloor().length; i++ )
-        result += "(" + i + ")";
+        robot.moveTo(1); 
 
         clean_result = "";
         clean_floor[0][0] = 1;
@@ -219,7 +169,7 @@ public class RobotTest {
         for(int i = clean_floor.length - 1; i >= 0; i--){
             for(int j = 0; j < clean_floor[i].length ; j++){
                 if (j == 0)
-                clean_result += " (" + i + ") ";
+                clean_result += Robot.text_purple + " (" + i + ") " + Robot.text_reset;
                 if (clean_floor[i][j] == 1)
                 clean_result += " * ";
                 else
@@ -230,9 +180,9 @@ public class RobotTest {
 
         clean_result += "     ";
         for(int i = 0; i < clean_floor.length; i++ )
-        clean_result += "(" + i + ")";
+        clean_result += Robot.text_purple + "(" + i + ")" + Robot.text_reset;
 
-        assertEquals(clean_result, result);
+        assertEquals(clean_result, robot.getPrintedFloor());
     }
 
 }
