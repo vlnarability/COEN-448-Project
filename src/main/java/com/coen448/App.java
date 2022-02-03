@@ -11,12 +11,12 @@ public class App {
         Scanner input = new Scanner(System.in);
 
         //Print Command List
-        System.out.println("Available Commands:\n [U|u] - Pen Up \n [D|d] - Pen Down \n [L|l] - Turn Left \n [R|r] - Turn Right \n [M|m s] - Move Forward \'s\' spaces (Non-Negative) \n [P|p] - Print Floor \n [C|c] - Print Robot Information \n [Q|q] - Stop Program \n [I|i n] - Initialize system to size \'n by n\' (Non-Negative) ");
+        System.out.println("Available Commands:\n\n [U|u] - Pen Up \n [D|d] - Pen Down \n [L|l] - Turn Left \n [R|r] - Turn Right \n [M|m s] - Move Forward \'s\' spaces (Non-Negative) \n [P|p] - Print Floor \n [C|c] - Print Robot Information \n [Q|q] - Stop Program \n [I|i n] - Initialize system to size \'n by n\' (Non-Negative) ");
 
 
         while(!exit){
             
-            System.out.println("Enter Command");
+            System.out.print("\nEnter Command: \t");
 
             //Get user input
             String next_cmd = input.nextLine().toUpperCase();
