@@ -160,8 +160,7 @@ public class Robot {
         // Changes how the robot moves depending on the current direction of the robot
         // Each case has similar code, but changes the row and column per the direction
         // First checks if the robot is already at the edge and cannot move
-        // Next checks if robot can complete every movement space, else the robot moves
-        // to the edge
+        // Next checks if robot can complete every movement space, else the robot does not move
         // Lastly, checks if the pen is down and updates the floor if true
         switch (getFacing_dir()) {
             case NORTH:

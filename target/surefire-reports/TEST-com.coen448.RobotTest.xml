@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.coen448.RobotTest" time="0.106" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.coen448.RobotTest" time="0.096" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
+    <property name="sonar.login" value="admin"/>
+    <property name="sonar.host.url" value="http://localhost:25000"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.class.path" value="/home/adam/Documents/COEN448/COEN-448-Project/target/test-classes:/home/adam/Documents/COEN448/COEN-448-Project/target/classes:/home/adam/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/adam/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/adam/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/adam/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/adam/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/adam/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
@@ -11,8 +13,9 @@
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
+    <property name="sonar.password" value="root"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-jdk/lib"/>
-    <property name="sun.java.command" value="/home/adam/Documents/COEN448/COEN-448-Project/target/surefire/surefirebooter10981191359036990998.jar /home/adam/Documents/COEN448/COEN-448-Project/target/surefire 2022-02-17T12-35-35_214-jvmRun1 surefire1741606293166509751tmp surefire_06286605641070169819tmp"/>
+    <property name="sun.java.command" value="/home/adam/Documents/COEN448/COEN-448-Project/target/surefire/surefirebooter2124419215075814470.jar /home/adam/Documents/COEN448/COEN-448-Project/target/surefire 2022-02-24T10-24-31_929-jvmRun1 surefire8504184733880932017tmp surefire_017000294514664130058tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/adam/Documents/COEN448/COEN-448-Project/target/test-classes:/home/adam/Documents/COEN448/COEN-448-Project/target/classes:/home/adam/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.6.0/junit-jupiter-api-5.6.0.jar:/home/adam/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/adam/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/adam/.m2/repository/org/junit/platform/junit-platform-commons/1.6.0/junit-platform-commons-1.6.0.jar:/home/adam/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.6.0/junit-jupiter-engine-5.6.0.jar:/home/adam/.m2/repository/org/junit/platform/junit-platform-engine/1.6.0/junit-platform-engine-1.6.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -25,9 +28,9 @@
     <property name="basedir" value="/home/adam/Documents/COEN448/COEN-448-Project"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
-    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/adam/Documents/COEN448/COEN-448-Project/target/surefire/surefirebooter10981191359036990998.jar"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="surefire.real.class.path" value="/home/adam/Documents/COEN448/COEN-448-Project/target/surefire/surefirebooter2124419215075814470.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.2+8-LTS-86"/>
     <property name="user.name" value="adam"/>
@@ -44,6 +47,7 @@
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="native.encoding" value="UTF-8"/>
+    <property name="sonar.projectKey" value="com.coen448:task1"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -51,18 +55,23 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="checkturnLeft" classname="com.coen448.RobotTest" time="0.037">
+  <testcase name="checkPathcoverage2" classname="com.coen448.RobotTest" time="0.041">
     <system-out><![CDATA[Should Print Before All Tests
 ]]></system-out>
   </testcase>
-  <testcase name="checkPenCommands" classname="com.coen448.RobotTest" time="0.004"/>
-  <testcase name="checkturnRight" classname="com.coen448.RobotTest" time="0.001"/>
+  <testcase name="checkPathcoverage3" classname="com.coen448.RobotTest" time="0.002"/>
+  <testcase name="checkturnLeft" classname="com.coen448.RobotTest" time="0.001"/>
+  <testcase name="checkPendown" classname="com.coen448.RobotTest" time="0.002"/>
+  <testcase name="checkturnRight" classname="com.coen448.RobotTest" time="0"/>
   <testcase name="shouldCreateInit" classname="com.coen448.RobotTest" time="0.006"/>
-  <testcase name="checkPrintInfo" classname="com.coen448.RobotTest" time="0.002"/>
-  <testcase name="shouldcheckPen" classname="com.coen448.RobotTest" time="0.001"/>
-  <testcase name="checkMove" classname="com.coen448.RobotTest" time="0.001">
+  <testcase name="checkPrintInfo" classname="com.coen448.RobotTest" time="0.001">
     <system-out><![CDATA[Cannot move that far in this direction
 ]]></system-out>
   </testcase>
-  <testcase name="checkPrintFloor" classname="com.coen448.RobotTest" time="0.002"/>
+  <testcase name="shouldcheckPen" classname="com.coen448.RobotTest" time="0.001"/>
+  <testcase name="checkMove" classname="com.coen448.RobotTest" time="0">
+    <system-out><![CDATA[Cannot move that far in this direction
+]]></system-out>
+  </testcase>
+  <testcase name="checkPrintFloor" classname="com.coen448.RobotTest" time="0.001"/>
 </testsuite>

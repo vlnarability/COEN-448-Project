@@ -76,7 +76,7 @@
 
 <span class="fc bfc" id="L77" title="All 2 branches covered.">        if (getPen_down()) {</span>
 <span class="fc" id="L78">            pen = &quot;Down&quot;;</span>
-<span class="fc" id="L79">        } else</span>
+        } else
 <span class="fc" id="L80">            pen = &quot;Up&quot;;</span>
 
 <span class="fc" id="L82">        String result = &quot;&quot;;</span>
@@ -165,9 +165,9 @@
         // Lastly, checks if the pen is down and updates the floor if true
 <span class="pc bpc" id="L166" title="3 of 5 branches missed.">        switch (getFacing_dir()) {</span>
             case NORTH:
-<span class="pc bpc" id="L168" title="1 of 2 branches missed.">                if ((old_location[0] + movement) &gt; floor[0].length - 1) {</span>
-<span class="nc" id="L169">                    System.out.println(&quot;Cannot move that far in this direction&quot;);</span>
-<span class="nc" id="L170">                } else {</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">                if ((old_location[0] + movement) &gt; floor[0].length - 1) {</span>
+<span class="fc" id="L169">                    System.out.println(&quot;Cannot move that far in this direction&quot;);</span>
+                } else {
 <span class="fc" id="L171">                    new_location[0] += movement;</span>
 
 <span class="fc bfc" id="L173" title="All 2 branches covered.">                    if (getPen_down()) {</span>
@@ -176,11 +176,11 @@
                     }
                 }
 
-<span class="fc" id="L179">                break;</span>
+                break;
             case EAST:
 <span class="fc bfc" id="L181" title="All 2 branches covered.">                if ((old_location[1] + movement) &gt; floor[1].length - 1) {</span>
 <span class="fc" id="L182">                    System.out.println(&quot;Cannot move that far in this direction&quot;);</span>
-<span class="fc" id="L183">                } else {</span>
+                } else {
 <span class="fc" id="L184">                    new_location[1] += movement;</span>
 
 <span class="pc bpc" id="L186" title="1 of 2 branches missed.">                    if (getPen_down()) {</span>
@@ -189,11 +189,11 @@
                     }
                 }
 
-<span class="nc" id="L192">                break;</span>
+                break;
             case SOUTH:
 <span class="nc bnc" id="L194" title="All 2 branches missed.">                if ((old_location[0] - movement) &lt; 0) {</span>
 <span class="nc" id="L195">                    System.out.println(&quot;Cannot move that far in this direction&quot;);</span>
-<span class="nc" id="L196">                } else {</span>
+                } else {
 <span class="nc" id="L197">                    new_location[0] -= movement;</span>
 
 <span class="nc bnc" id="L199" title="All 2 branches missed.">                    if (getPen_down()) {</span>
@@ -202,11 +202,11 @@
                     }
                 }
 
-<span class="nc" id="L205">                break;</span>
+                break;
             case WEST:
 <span class="nc bnc" id="L207" title="All 2 branches missed.">                if ((old_location[1] - movement) &lt; 0) {</span>
 <span class="nc" id="L208">                    System.out.println(&quot;Cannot move that far in this direction&quot;);</span>
-<span class="nc" id="L209">                } else {</span>
+                } else {
 <span class="nc" id="L210">                    new_location[1] -= movement;</span>
 
 <span class="nc bnc" id="L212" title="All 2 branches missed.">                    if (getPen_down()) {</span>
