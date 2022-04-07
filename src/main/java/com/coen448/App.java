@@ -1,10 +1,12 @@
 package com.coen448;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
 
     static Robot robot = new Robot();
+
+    static List<String> history = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
         boolean exit = false;
@@ -12,14 +14,14 @@ public class App {
 
         // Print Command List
         System.out.println(
-                "Available Commands:\n\n [U|u] - Pen Up \n [D|d] - Pen Down \n [L|l] - Turn Left \n [R|r] - Turn Right \n [M|m s] - Move Forward \'s\' spaces (Non-Negative) \n [P|p] - Print Floor \n [C|c] - Print Robot Information \n [Q|q] - Stop Program \n [I|i n] - Initialize system to size \'n by n\' (Non-Negative) ");
+                "Available Commands:\n\n [U|u] - Pen Up \n [D|d] - Pen Down \n [L|l] - Turn Left \n [R|r] - Turn Right \n [M|m s] - Move Forward \'s\' spaces (Non-Negative) \n [P|p] - Print Floor \n [C|c] - Print Robot Information \n [H|h] - Print Command History \n [Q|q] - Stop Program \n [I|i n] - Initialize system to size \'n by n\' (Non-Negative) ");
 
         while (!exit) {
 
             System.out.print("\nEnter Command: \t");
 
             // Get user input
-            String next_cmd = input.nextLine().toUpperCase();
+            String next_cmd = input.nextLine().toUpperCase();            
             String cmd = null;
             int cmd_int = -1;
 
@@ -44,8 +46,8 @@ public class App {
                 continue;
             }
 
-            // Check if program was initialized, else do not accept other commands
-            if ((!robot.initialized) && ((!cmd.equals("I")) && (!cmd.equals("Q")))) {
+            // Check if program was initialized, else do not accept other commands other than history or quit
+            if ((!robot.initialized) && ((!cmd.equals("I")) && (!cmd.equals("Q"))&& (!cmd.equals("H")))) {
                 System.out.println("Please initialize system first!");
                 continue;
             }
@@ -76,6 +78,9 @@ public class App {
                 case "Q": // Quit
                     exit = true;
                     break;
+                case "H": // History
+                    robot.displayHistory();
+                    break;
                 case "I": // Initialize
                     if (cmd_int == -1) {
                         System.out.println("In order to initialize, a non negative integer is required");
@@ -86,6 +91,7 @@ public class App {
                     }
                 default:
                     System.out.println("Command not recognized");
+                    robot.addEvent(next_cmd, -1);
                     break;
             }
 
