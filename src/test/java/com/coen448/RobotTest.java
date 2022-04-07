@@ -132,6 +132,13 @@ public class RobotTest {
             assertEquals(Arrays.toString(new int[] { 3, 2 }), Arrays.toString(robot.getLocation()));
 
         }
+
+        robot.turnRight();
+        robot.moveTo(2);
+        if (Direction.WEST == robot.getFacing_dir()) {
+            assertEquals(Arrays.toString(new int[] { 3, 0 }), Arrays.toString(robot.getLocation()));
+
+        }
     }
 
     @Test
@@ -145,6 +152,15 @@ public class RobotTest {
 
         robot.setPen_down(true);
         robot.moveTo(5);
+
+        if (Direction.NORTH == robot.getFacing_dir()) {
+            assertEquals(Arrays.toString(new int[] { 5, 0 }), Arrays.toString(robot.getLocation())); // int[](y,x)
+            for (int i = old_location[0]; i >= new_location[0]; i--)
+                            assertEquals(1, floor[i][old_location[1]]);
+        }
+
+        robot.setPen_down(true);
+        robot.moveTo(15);
 
         if (Direction.NORTH == robot.getFacing_dir()) {
             assertEquals(Arrays.toString(new int[] { 5, 0 }), Arrays.toString(robot.getLocation())); // int[](y,x)
@@ -173,6 +189,33 @@ public class RobotTest {
         robot.moveTo(2);
         if (Direction.SOUTH == robot.getFacing_dir()) {
             assertEquals(Arrays.toString(new int[] { 3, 2 }), Arrays.toString(robot.getLocation()));
+            for (int i = old_location[0]; i >= new_location[0]; i--)
+                            assertEquals(1, floor[i][old_location[1]]);
+
+        }
+
+        robot.turnRight();
+        robot.moveTo(15);
+        if (Direction.SOUTH == robot.getFacing_dir()) {
+            assertEquals(Arrays.toString(new int[] { 3, 2 }), Arrays.toString(robot.getLocation()));
+            for (int i = old_location[0]; i >= new_location[0]; i--)
+                            assertEquals(1, floor[i][old_location[1]]);
+
+        }
+
+        robot.turnRight();
+        robot.moveTo(2);
+        if (Direction.WEST == robot.getFacing_dir()) {
+            assertEquals(Arrays.toString(new int[] { 3, 0 }), Arrays.toString(robot.getLocation()));
+            for (int i = old_location[0]; i >= new_location[0]; i--)
+                            assertEquals(1, floor[i][old_location[1]]);
+
+        }
+
+        robot.turnRight();
+        robot.moveTo(15);
+        if (Direction.WEST == robot.getFacing_dir()) {
+            assertEquals(Arrays.toString(new int[] { 3, 0 }), Arrays.toString(robot.getLocation()));
             for (int i = old_location[0]; i >= new_location[0]; i--)
                             assertEquals(1, floor[i][old_location[1]]);
 
